@@ -7,8 +7,8 @@ services:
         uid: 1000
       context: ./Dockerfiles
       dockerfile: php8.0
-    image: app-php
-    container_name: app-laravel
+    image: laravel-app
+    container_name: laravel-app
     restart: unless-stopped
     working_dir: /var/www/
     volumes:
@@ -19,7 +19,7 @@ services:
 
   mysql:
     image: mysql:5.7
-    container_name: app-mysql
+    container_name: laravel-mysql
     restart: unless-stopped
     ports:
       - "3306:3306"
@@ -35,7 +35,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: app-nginx
+    container_name: laravel-nginx
     restart: unless-stopped
     ports:
       - "8000:80"
